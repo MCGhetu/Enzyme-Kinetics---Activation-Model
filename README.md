@@ -1,6 +1,7 @@
 # Enzyme Kinetics - Activation Model
 
-The Enzymatic Activity Analysis and Plotting Tool is a Python script designed to facilitate the analysis of enzymatic activity data obtained from experimental assays. Leveraging the power of libraries such as pandas, numpy, and matplotlib, this tool enables researchers to efficiently process and visualize their data, gaining valuable insights into enzyme kinetics.
+The Enzyme-Kinetics - Activation-Model is a Python script designed to facilitate the analysis of enzymatic activity data obtained from experimental assays, typically through absorbance measurements. In this context, the focus lies on determining the slope of the absorbance measurement, as it directly correlates with the rate of enzymatic activity. After some preprocessing steps, the final fit with the Michaelis-Menten derived model is represented as substrate vs enzyme activity (TON - turnover number), allowing researchers to gain valuable insights into enzyme kinetics. Leveraging the power of libraries such as pandas, numpy, and matplotlib, this tool enables researchers to efficiently process and visualize their data, gaining valuable insights into enzyme kinetics.
+
 The model used in this tool is a modified version of the classic Michaelis-Menten equation, incorporating additional terms to account for specific experimental conditions.
 
 ## Michaelis-Menten Equation
@@ -44,9 +45,10 @@ Users can simply run the script and provide the path to their Excel file contain
 # Advantages:
 
 Streamlined Data Analysis: Eliminates manual data processing tasks, saving time and reducing errors.
-Insightful Visualizations: Provides clear and intuitive visualizations of experimental data and model fits, aiding in data interpretation.
-Parameter Estimation: Enables researchers to estimate important parameters related to enzyme kinetics, facilitating further analysis and understanding of enzymatic activity.
-Future Enhancements:
 
-Future enhancements to the tool may include support for additional data formats, integration with statistical analysis libraries for advanced data processing, and optimization of plotting features for enhanced visualization.
+Insightful Visualizations: Provides clear and intuitive visualizations of experimental data and model fits, aiding in data interpretation.
+
+Parameter Estimation: Enables researchers to estimate important parameters related to enzyme kinetics, facilitating further analysis and understanding of enzymatic activity.
+
+Future Enhancements: The tool may include support for additional data formats, integration with statistical analysis libraries for advanced data processing, and optimization of plotting features for enhanced visualization.
 
