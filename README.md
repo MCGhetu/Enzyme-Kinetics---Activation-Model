@@ -6,24 +6,24 @@ The model used in this tool is a modified version of the classic Michaelis-Mente
 ## Michaelis-Menten Equation
 The Michaelis-Menten equation describes the rate of enzymatic reactions based on the concentration of substrate [S].
 
-\[ v = \frac{V_{max} \cdot [S]}{K_M + [S]} \]
+$v = \frac{V_{max} \cdot [S]}{K_M + [S]}$
 
 Where:
-- \( v \) is the reaction rate,
-- \( V_{max} \) is the maximum reaction rate,
-- \( K_M \) is the Michaelis constant,
-- \( [S] \) is the substrate concentration.
+- $\( v \)$ is the reaction rate,
+- $\( V_{max} \)$ is the maximum reaction rate,
+- $\( K_M \)$ is the Michaelis constant,
+- $\( [S] \)$ is the substrate concentration.
 
 ## Modified Model Equation
 The modified model equation is an extension of the classic Michaelis-Menten equation, incorporating additional terms to account for specific experimental conditions.
 
-\[ v = \frac{V_{max} \cdot ([S] + 2.13 \cdot [S]^2 / 17.7)}{K_M + [S] + [S]^2 / 17.7} \]
+$v = \frac{V_{max} \cdot ([S] + 2.13 \cdot [S]^2 / 17.7)}{K_M + [S] + [S]^2 / 17.7}$
 
 Where:
-- \( v \) is the reaction rate,
-- \( V_{max} \) is the maximum reaction rate,
-- \( K_M \) is the Michaelis constant,
-- \( [S] \) is the substrate concentration.
+- $\( v \)$ is the reaction rate,
+- $\( V_{max} \)$ is the maximum reaction rate,
+- $\( K_M \)$ is the Michaelis constant,
+- $\( [S] \)$ is the substrate concentration.
 
 # Key Features:
 
