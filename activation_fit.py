@@ -35,12 +35,8 @@ def r_squared(y_true, y_pred):
 def activation_mechanism(c, vmax, KM):
     return vmax * (c + 2.13 * c**2 / 17.7) / (KM + c + c**2 / 17.7)
 
-def main():
-
-     # Read data from an Excel file
-    df = pd.read_excel("example.xlsx")
-    
-    # Extract ox data from excel file
+# Function to extract ox data from excel file
+def extract_ox_data(df):
     ox_data = df.iloc[11, 2:]
     if ox_data.dtype == 'object':  # If ox_data is text
         ox_data = ox_data.astype(str)
@@ -48,20 +44,37 @@ def main():
             ox_data = ox_data.apply(extract_seconds).tolist()
         else:
             ox_data = ox_data.astype(float).tolist()
-            
-    # Extract oy data and perform unit conversions (absorbance to concentration)
+    return ox_data
+
+# Function to extract oy data and perform unit conversions
+def extract_oy_data(df):
     oy_data = df.iloc[12:25, 2:].astype(float).values
     oy_data = oy_data * (10**6) / 6220 / 0.58
+    return oy_data
+
+# Function to extract legend labels
+def extract_legend_labels(df):
+    return df.iloc[12:25, 0].tolist()
+
+def main():
+    # Read data from an Excel file
+    df = pd.read_excel(input("Enter the path to the input Excel file: "))
+
+    # Extract ox data from excel file
+    ox_data = extract_ox_data(df)
+
+    # Extract oy data and perform unit conversions (absorbance to concentration)
+    oy_data = extract_oy_data(df)
 
     # Extract legend labels
-    legend_labels = df.iloc[12:25, 0].tolist()
+    legend_labels = extract_legend_labels(df)
 
     TON = []
     vmax_values = []
     KM_values = []
     pg_TON_data = []
 
-    # Removing data points from the end of the graph until the linear fit achieves the highest R-squared value
+    # Removing data points from the end of the graph until the linear fit achieves the highest R-squared value 
     for i in range(oy_data.shape[0]):
         x_data = np.array(ox_data[:len(oy_data[i])]) 
         y_data = oy_data[i]
@@ -82,13 +95,13 @@ def main():
         # Extracting the slope value for each graph and convert it 
         slope = abs(popt[0] * 1000) / 5
         TON.append(slope)
-        
+
     # Plot the cut data
     plt.xlabel('Time (s)')
     plt.ylabel('[NADH] (uM)')
     plt.legend(legend_labels)
     plt.show()
-    
+
     # Substracting the value of the last slope from all the other values
     last_slope = TON[-1]
     TON = [slope - last_slope for slope in TON[:-1]]
@@ -107,10 +120,10 @@ def main():
 
     pg_TON_df = pd.DataFrame({'[3PG] (mM)': pg_values, 'TON (1/s)': [round(val, 2) for val in TON]})
     
-    # Print a table containing the [S] values and the corresponding TON value 
+    # Print a table containing the [S] values and the corresponding TON value
     print("Slope Table:")
     print(pg_TON_df)
-    
+
     # Print the graph of [S] vs TON
     plt.scatter(pg_values, TON)
     plt.xlabel('[3PG] (mM)')
