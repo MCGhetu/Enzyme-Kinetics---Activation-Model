@@ -26,6 +26,16 @@ Where:
 - $\( K_M \)$ is the Michaelis constant,
 - $\( [S] \)$ is the substrate concentration.
 
+## Usage
+
+To use this project, make sure to follow these steps:
+
+1. Clone this repository to your local machine.
+
+2. Navigate to the project directory in your terminal.
+
+3. Ensure that both the main program (`activation_fit.py`) and the pytest file (`test_activation_mechanism.py`) are in the same folder.
+
 # Key Features:
 
 Data Import: The tool seamlessly imports experimental data from Excel files, providing flexibility in data storage and organization.
@@ -51,4 +61,3 @@ Insightful Visualizations: Provides clear and intuitive visualizations of experi
 Parameter Estimation: Enables researchers to estimate important parameters related to enzyme kinetics, facilitating further analysis and understanding of enzymatic activity.
 
 Future Enhancements: The tool may include support for additional data formats, integration with statistical analysis libraries for advanced data processing, and optimization of plotting features for enhanced visualization.
-
